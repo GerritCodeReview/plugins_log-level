@@ -1,0 +1,8 @@
+/.buckd
+/.buckversion
+/.classpath
+/.project
+/.watchmanconfig
+/buck-out/
+/bucklets
+/eclipse-out
