@@ -1,4 +1,4 @@
-include_defs('//bucklets/gerrit_plugin.bucklet')
+load("//tools/bzl:plugin.bzl", "gerrit_plugin")
 
 gerrit_plugin(
   name = 'log-level',
@@ -10,9 +10,4 @@ gerrit_plugin(
     'Gerrit-Module: com.googlesource.gerrit.plugins.loglevel.LogLevelModule',
     'Implementation-Title: Log Level plugin',
   ]
-)
-
-java_library(
-  name = 'classpath',
-  deps = GERRIT_PLUGIN_API + [':log-level__plugin'],
 )
