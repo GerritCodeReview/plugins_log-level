@@ -16,14 +16,12 @@ package com.googlesource.gerrit.plugins.loglevel;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.jgit.lib.Config;
 
 public class LogLevel implements LifecycleListener {
-  private static final Logger log =
-      Logger.getLogger(LogLevel.class);
+  private static final Logger log = Logger.getLogger(LogLevel.class);
 
   private static final String CFG_NAME = "log-level";
 
@@ -38,8 +36,7 @@ public class LogLevel implements LifecycleListener {
     OFF
   }
 
-  @Inject
-  private PluginConfigFactory configFactory;
+  @Inject private PluginConfigFactory configFactory;
 
   @Override
   public void start() {
@@ -59,6 +56,5 @@ public class LogLevel implements LifecycleListener {
   }
 
   @Override
-  public void stop() {
-  }
+  public void stop() {}
 }
