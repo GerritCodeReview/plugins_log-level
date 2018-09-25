@@ -9,11 +9,12 @@ SYNOPSIS
 --------
 @PLUGIN@.config:
 ```
-[log-level "FATAL"]
+[FATAL]
     name = com.google.gerrit.server.change.EmailReviewComments
 
-[log-level "INFO"]
-    name = com.google.gerrit.common.Version
+[WARN]
+    name = org.eclipse.jetty.server.session
+    name = com.google.gerrit.server.plugins
 ```
 
 DESCRIPTION

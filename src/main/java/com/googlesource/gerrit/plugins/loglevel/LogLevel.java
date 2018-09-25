@@ -13,6 +13,7 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.loglevel;
 
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
@@ -23,34 +24,20 @@ import org.eclipse.jgit.lib.Config;
 public class LogLevel implements LifecycleListener {
   private static final Logger log = Logger.getLogger(LogLevel.class);
 
-  private static final String CFG_NAME = "log-level";
-
-  private static enum LevelOption {
-    ALL,
-    TRACE,
-    DEBUG,
-    INFO,
-    WARN,
-    ERROR,
-    FATAL,
-    OFF
-  }
-
   @Inject private PluginConfigFactory configFactory;
+  @Inject private @PluginName String pluginName;
 
   @Override
   public void start() {
     log.info("Plug-in started");
-    Config config = configFactory.getGlobalPluginConfig(CFG_NAME);
-    for (LevelOption level : LevelOption.values()) {
-      String[] names = config.getStringList("log-levels", level.name(), "name");
-      if (names != null) {
-        log.info("Setting log levels to [" + level + "] ");
-        for (String name : names) {
-          Logger logger = Logger.getLogger(name);
-          logger.setLevel(Level.toLevel(level.name()));
-          log.info("[" + level + "] " + name);
-        }
+    Config config = configFactory.getGlobalPluginConfig(pluginName);
+    for (String cfgLevel : config.getSections()) {
+      String[] names = config.getStringList(cfgLevel, null, "name");
+      for (String name : names) {
+        Logger logger = Logger.getLogger(name);
+        Level level = Level.toLevel(cfgLevel, Level.INFO);
+        logger.setLevel(level);
+        log.info("[" + level.toString() + "] " + name);
       }
     }
   }
