@@ -8,6 +8,7 @@ NAME
 SYNOPSIS
 --------
 @PLUGIN@.config:
+
 ```
 [FATAL]
     name = com.google.gerrit.server.change.EmailReviewComments
