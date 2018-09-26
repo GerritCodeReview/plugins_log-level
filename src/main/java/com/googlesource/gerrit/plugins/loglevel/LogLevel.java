@@ -15,30 +15,42 @@ package com.googlesource.gerrit.plugins.loglevel;
 
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.events.LifecycleListener;
-import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.util.Properties;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.eclipse.jgit.lib.Config;
 
 public class LogLevel implements LifecycleListener {
   private static final Logger log = Logger.getLogger(LogLevel.class);
 
-  @Inject private PluginConfigFactory configFactory;
+  @Inject private SitePaths sitePaths;
   @Inject private @PluginName String pluginName;
 
   @Override
   public void start() {
     log.info("Plug-in started");
-    Config config = configFactory.getGlobalPluginConfig(pluginName);
-    for (String cfgLevel : config.getSections()) {
-      String[] names = config.getStringList(cfgLevel, null, "name");
-      for (String name : names) {
-        Logger logger = Logger.getLogger(name);
-        Level level = Level.toLevel(cfgLevel, Level.INFO);
-        logger.setLevel(level);
-        log.info("[" + level.toString() + "] " + name);
-      }
+    Properties config = new Properties();
+    Path pluginConfig = sitePaths.etc_dir.resolve(pluginName + ".properties");
+    try (InputStream in = Files.newInputStream(pluginConfig)) {
+      config.load(in);
+    } catch (NoSuchFileException e) {
+      log.warn("Configuration file " + pluginConfig + " not found");
+    } catch (IOException e) {
+      log.error("Error loading config file " + pluginConfig, e);
+    }
+
+    for (String name : config.stringPropertyNames()) {
+      String cfgLevel = config.getProperty(name);
+      Logger logger = Logger.getLogger(name);
+      Level level = Level.toLevel(cfgLevel, Level.INFO);
+      logger.setLevel(level);
+      log.info(name + "=" + level.toString());
     }
   }
 

@@ -7,15 +7,12 @@ NAME
 
 SYNOPSIS
 --------
-@PLUGIN@.config:
+@PLUGIN@.properties:
 
 ```
-[FATAL]
-    name = com.google.gerrit.server.change.EmailReviewComments
-
-[WARN]
-    name = org.eclipse.jetty.server.session
-    name = com.google.gerrit.server.plugins
+com.google.gerrit.server.change.EmailReviewComments=FATAL
+org.eclipse.jetty.server.session=WARN
+com.google.gerrit.server.plugins=WARN
 ```
 
 DESCRIPTION
