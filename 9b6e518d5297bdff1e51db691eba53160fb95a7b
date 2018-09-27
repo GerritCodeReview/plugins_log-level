@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1afcbf00_e6e4f930",
+        "filename": "WORKSPACE",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-09-27T03:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc8b5023_3ea5384e",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "9b6e518d5297bdff1e51db691eba53160fb95a7b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "895307ec_934ece1d",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-09-27T03:48:38Z",
       "side": 1,
       "message": "Is this correct?",
+      "range": {
+        "startLine": 53,
+        "startChar": 19,
+        "endLine": 53,
+        "endChar": 53
+      },
+      "revId": "9b6e518d5297bdff1e51db691eba53160fb95a7b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b8f0e77_3307468e",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-09-27T03:52:10Z",
+      "side": 1,
+      "message": "This is the issue that was reported in https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d9762 the other day.",
+      "parentUuid": "895307ec_934ece1d",
       "range": {
         "startLine": 53,
         "startChar": 19,
@@ -62,6 +110,24 @@
       "revId": "9b6e518d5297bdff1e51db691eba53160fb95a7b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d50c4f6_3088a627",
+        "filename": "tools/bzl/BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-09-27T03:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dcbbeb3_b4c2ca55",
+      "revId": "9b6e518d5297bdff1e51db691eba53160fb95a7b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
