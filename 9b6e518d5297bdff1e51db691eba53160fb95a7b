@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "d279693c_3fe33596",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-09-27T04:09:56Z",
+      "side": 1,
+      "message": "As far as I know, yes, it\u0027s correct.",
+      "parentUuid": "fd2afa33_049e3175",
+      "range": {
+        "startLine": 53,
+        "startChar": 19,
+        "endLine": 53,
+        "endChar": 53
+      },
+      "revId": "9b6e518d5297bdff1e51db691eba53160fb95a7b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dcbbeb3_b4c2ca55",
         "filename": "tools/bzl/BUILD",
         "patchSetId": 1
