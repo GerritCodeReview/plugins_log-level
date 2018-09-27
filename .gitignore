@@ -1,8 +1,7 @@
-/.buckd
-/.buckversion
 /.classpath
+*.DS_Store
 /.project
-/.watchmanconfig
-/buck-out/
-/bucklets
+/.settings
+/.primary_build_tool
+/bazel-*
 /eclipse-out

@@ -1,17 +1,63 @@
-Build
-=====
+# Build
 
-This @PLUGIN@ plugin is built with Bazel.
+This plugin can be built with Bazel, and two build modes are supported:
 
-Clone (or link) this plugin to the `plugins` directory of Gerrit's source tree.
+* Standalone
+* In Gerrit tree
 
-Then issue
+Standalone build mode is recommended, as this mode doesn't require local Gerrit
+tree to exist. Moreover, there are some limitations and additional manual steps
+required when building in Gerrit tree mode (see corresponding sections).
+
+## Build standalone
+
+To build the plugin, issue the following command:
+
+```
+  bazel build @PLUGIN@
+```
+
+The output is created in
+
+```
+  bazel-genfiles/@PLUGIN@.jar
+```
+
+To package the plugin sources run:
+
+```
+  bazel build lib@PLUGIN@__plugin-src.jar
+```
+
+The output is created in:
+
+```
+  bazel-bin/lib@PLUGIN@__plugin-src.jar
+```
+
+This project can be imported into the Eclipse IDE:
+
+```
+  ./tools/eclipse/project.sh
+```
+
+## Build in Gerrit tree
+
+Clone or link this plugin to the plugins directory of Gerrit's
+source tree. From Gerrit source tree issue the command:
 
 ```
   bazel build plugins/@PLUGIN@
 ```
 
-in the root of Gerrit's source tree to build
+Note that due to a [known issue in Bazel][bazelissue], if the plugin
+has previously been built in standalone mode, it is necessary to clean
+the workspace before building in-tree:
+
+```
+  cd plugins/@PLUGIN@
+  bazel clean --expunge
+```
 
 The output is created in
 
@@ -27,11 +73,10 @@ Gerrit core in `tools/bzl/plugins.bzl`, and execute:
   ./tools/eclipse/project.py
 ```
 
-To execute the tests run:
-
-```
-  bazel test plugins/@PLUGIN@:websession_flatfile_tests
-```
-
 How to build the Gerrit Plugin API is described in the [Gerrit
 documentation](../../../Documentation/dev-bazel.html#_extension_and_plugin_api_jar_files).
+
+[Back to @PLUGIN@ documentation index][index]
+
+[index]: index.html
+[bazelissue]: https://github.com/bazelbuild/bazel/issues/2797
