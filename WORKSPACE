@@ -3,7 +3,7 @@ workspace(name = "log_level")
 load("//:bazlets.bzl", "load_bazlets")
 
 load_bazlets(
-    commit = "5c26af9e0374ede4cd67939be972adf6c4cda791",
+    commit = "4293943826c5c1a42d39d772008106e4e02836cd",
     #local_path = "/home/<user>/projects/bazlets",
 )
 
@@ -16,4 +16,4 @@ load(
 gerrit_api()
 
 # Load snapshot Plugin API
-#gerrit_api(version = "3.1.xy-SNAPSHOT")
+#gerrit_api(version = "3.3.0-SNAPSHOT")
