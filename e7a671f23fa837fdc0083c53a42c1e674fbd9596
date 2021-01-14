@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5bad9f3_b255c2ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-01-14T18:35:40Z",
+      "side": 1,
+      "message": "We could have merged stable-3.1 in this branch first as a base for these changes. I\u0027m still approving as that merge is not blocking this change, IMHO.",
+      "revId": "e7a671f23fa837fdc0083c53a42c1e674fbd9596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
