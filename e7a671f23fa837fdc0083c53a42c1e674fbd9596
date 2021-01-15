@@ -16,6 +16,24 @@
       "message": "We could have merged stable-3.1 in this branch first as a base for these changes. I\u0027m still approving as that merge is not blocking this change, IMHO.",
       "revId": "e7a671f23fa837fdc0083c53a42c1e674fbd9596",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d715b3_8f67502f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2021-01-15T07:18:25Z",
+      "side": 1,
+      "message": "Right, the same way I did for bazlets... I will do it properly for \u0027stable-3.3\u0027 ;)",
+      "parentUuid": "b5bad9f3_b255c2ab",
+      "revId": "e7a671f23fa837fdc0083c53a42c1e674fbd9596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
